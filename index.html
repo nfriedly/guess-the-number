@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<title>Guess the number</title>
+</head>
+<body>
+	<h1>Guess the number</h1>
+	<form id="game-form">
+		<input type="text" id="guess-input" name="guess-input" />
+		<br />
+		<input type="submit" value="Check" />
+	</form>
+
+	<h2 id="answer-element"></h2>
+
+<script>
+	// non-jquery version
+	var number = Math.floor(Math.random() * 10) + 1;
+	var form = document.getElementById('game-form');
+	var input = document.getElementById('guess-input');
+	var output = document.getElementById('answer-element');
+	form.onsubmit = function() {
+		var guess = parseInt(input.value);
+		if (guess == number) {
+			output.innerHTML = "You guessed it!";
+		} else {
+			output.innerHTML = "Try again :(";
+		}
+		return false;
+	}
+	input.onkeypress = function() {
+		output.innerHTML = "";
+	}
+</script>
+
+<!--
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript"></script>
+<script>
+	$(document).ready(function() {
+		var $input = $('#guess');
+	
+	});
+</script>
+-->
+</body>
+</html>
